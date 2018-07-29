@@ -22,13 +22,14 @@ app.use((req, res, next) => {
   next();
 })
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs', {
-    pageTitle:  'Site Under Maintenance',
-    currentYear: new Date().getFullYear(),
-    bodyContent:'The Site is under maintenance'
-  });
-})
+//Maintenance Page Code
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs', {
+//     pageTitle:  'Site Under Maintenance',
+//     currentYear: new Date().getFullYear(),
+//     bodyContent:'The Site is under maintenance'
+//   });
+// })
 
 app.get ('/', (req, res) => {
   res.render('home.hbs',{
@@ -44,6 +45,14 @@ app.get('/about', (req, res) => {
     currentYear: new Date().getFullYear()
   });
 });
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle:  'Projects',
+    bodyContent: 'Current Fiscal Year Projects Information',
+    currentYear:  new Date().getFullYear()
+  })
+})
 
 app.get('/bad', (req, res) => {
   res.send('Bad Page');
